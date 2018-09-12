@@ -19,10 +19,13 @@ void loop() {
     digitalWrite(7, LOW);
     digitalWrite(8, LOW);
 
+    //reads whether or not the buttons are pressed
     bool left = analogRead(A3) > 1000;
     bool right = analogRead(A0) > 1000;
     bool innerleft = analogRead(A2) > 1000;
     bool innerright = analogRead(A1) > 1000;
+
+    //yes, these cases can overlap
     if(left){
         digitalWrite(3 + currentLight, HIGH);
     }
@@ -40,5 +43,5 @@ void loop() {
         currentLight += 1;
     if(currentLight > 5)
         currentLight = 0;
-    delay(100);              // wait for a second
+    delay(100);              // wait for a tenth of a second
 }
